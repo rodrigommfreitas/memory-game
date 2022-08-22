@@ -30,7 +30,6 @@ const Deck = ({ addScore, resetScore, totalPokemons }) => {
     }
 
     // https://javascript.info/array-methods#shuffle-an-array
-
     for (let i = batch.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
       [batch[i], batch[j]] = [batch[j], batch[i]];
