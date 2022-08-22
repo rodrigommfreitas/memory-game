@@ -1,7 +1,8 @@
 import React from 'react';
+import Logo from './Logo';
 
 function App() {
-  return <h1>Hello</h1>;
+  return <Logo />;
 }
 
 export default App;

@@ -4,6 +4,10 @@
 body {
   min-height: 100vh;
   min-width: 100vw;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  padding-inline: 1em;
   background-image: url('./assets/images/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
