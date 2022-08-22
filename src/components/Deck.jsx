@@ -42,7 +42,6 @@ const Deck = ({ addScore, resetScore, totalPokemons }) => {
       let newSeenPokemons = [...seenPokemons, index];
       setSeenPokemons(newSeenPokemons);
       addScore();
-      // updateBestScore();
     } else {
       resetScore();
       setSeenPokemons([]);
