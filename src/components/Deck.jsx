@@ -12,23 +12,31 @@ const Deck = ({ addScore, resetScore, totalPokemons }) => {
 
   const createBatch = () => {
     let batch = [];
+    let indexList = [];
     // Generates random indexes for the new cards
     for (let n of [...Array(totalCards).keys()]) {
       let randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+      while (indexList.indexOf(randomIndex) === 0)
+        randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+
       // For the last card, guaranteedly generates a never seen pokemon
       if (n === totalCards - 1) {
         while (seenPokemons.includes(randomIndex)) {
           randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+          while (indexList.indexOf(randomIndex) === 0)
+            randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
         }
       }
       batch.push(randomIndex);
     }
 
     // https://javascript.info/array-methods#shuffle-an-array
+    /*
     for (let i = batch.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
       [batch[i], batch[j]] = [batch[j], batch[i]];
-    }
+    }*/
+    batch.sort(() => 0.5 - Math.random());
     setCurrentPokemons(batch);
   };
 
