@@ -1,2 +1,12 @@
 @forward './scss/globals/';
 @use './scss/util/' as u;
+
+body {
+  @font-face {
+    font-family: 'Pokemon Classic';
+    src: url(assets/Pokemon\ Classic.ttf) format('ttf');
+  }
+
+  font-family: 'Pokemon Classic', sans-serif;
+  color: white;
+}
