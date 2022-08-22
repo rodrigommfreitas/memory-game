@@ -21,3 +21,17 @@ body {
   font-family: 'Pokemon Classic', sans-serif;
   color: white;
 }
+
+.logo {
+  @include u.breakpoint-up(medium) {
+    width: u.rem(600);
+    height: u.rem(180);
+  }
+
+  margin-block: 0.5em;
+  width: u.rem(350);
+  height: u.rem(130);
+  font-size: 2rem;
+  font-weight: bolder;
+  letter-spacing: 25px;
+}
