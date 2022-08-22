@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Scoreboard from './Scoreboard';
+import Deck from './Deck';
+import Finish from './Finish';
 
 const Game = () => {
   const totalPokemons = 151;
@@ -14,7 +17,20 @@ const Game = () => {
     setScore(0);
   };
 
-  return <div>Game</div>;
+  return (
+    <div className='game'>
+      <Scoreboard score={score} bestScore={bestScore} />
+      {score < totalPokemons ? (
+        <Deck
+          addScore={addScore}
+          resetScore={resetScore}
+          totalPokemons={totalPokemons}
+        />
+      ) : (
+        <Finish />
+      )}
+    </div>
+  );
 };
 
 export default Game;
