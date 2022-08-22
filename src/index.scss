@@ -27,8 +27,11 @@ body {
     width: u.rem(600);
     height: u.rem(180);
   }
-
-  margin-block: 0.5em;
+  background-image: url('/src/assets/images/logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0.5em auto;
   width: u.rem(350);
   height: u.rem(130);
   font-size: 2rem;
