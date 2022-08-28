@@ -4,7 +4,7 @@ import Deck from './Deck';
 import Finish from './Finish';
 
 const Game = () => {
-  const totalPokemons = 151;
+  const TOTAL_POKEMONS = 151;
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
@@ -20,11 +20,11 @@ const Game = () => {
   return (
     <div className='game'>
       <Scoreboard score={score} bestScore={bestScore} />
-      {score < totalPokemons ? (
+      {score < TOTAL_POKEMONS ? (
         <Deck
           addScore={addScore}
           resetScore={resetScore}
-          totalPokemons={totalPokemons}
+          TOTAL_POKEMONS={TOTAL_POKEMONS}
         />
       ) : (
         <Finish />

@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 
-const Deck = ({ addScore, resetScore, totalPokemons }) => {
-  const totalCards = 3;
+const Deck = ({ addScore, resetScore, TOTAL_POKEMONS }) => {
+  const TOTAL_CARDS = 3;
   const [seenPokemons, setSeenPokemons] = useState([]);
   const [currentPokemons, setCurrentPokemons] = useState([]);
   const [currentNames, setCurrentNames] = useState([]);
@@ -13,17 +13,17 @@ const Deck = ({ addScore, resetScore, totalPokemons }) => {
   const createBatch = () => {
     let batch = [];
     // Generates random indexes for the new cards
-    for (let n of [...Array(totalCards).keys()]) {
-      let randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+    for (let n of [...Array(TOTAL_CARDS).keys()]) {
+      let randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
       while (batch.indexOf(randomIndex) === 0)
-        randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+        randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
 
       // For the last card, guaranteedly generates a never seen pokemon
-      if (n === totalCards - 1) {
+      if (n === TOTAL_CARDS - 1) {
         while (seenPokemons.includes(randomIndex)) {
-          randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+          randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
           while (batch.indexOf(randomIndex) === 0)
-            randomIndex = Math.floor(Math.random() * totalPokemons) + 1;
+            randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
         }
       }
       batch.push(randomIndex);
@@ -82,7 +82,7 @@ const Deck = ({ addScore, resetScore, totalPokemons }) => {
       {isLoading ? (
         <h2>Loading...</h2>
       ) : (
-        [...new Array(totalCards)].map((e, cardIndex) => (
+        [...new Array(TOTAL_CARDS)].map((e, cardIndex) => (
           <Card
             key={cardIndex}
             pokemonIndex={currentPokemons[cardIndex]}
