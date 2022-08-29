@@ -13,13 +13,13 @@ const Deck = ({ addScore, resetScore, TOTAL_POKEMONS }) => {
   const createBatch = () => {
     let batch = [];
     // Generates random indexes for the new cards
-    for (let n of [...Array(TOTAL_CARDS).keys()]) {
+    for (let i = 0; i < TOTAL_CARDS; i++) {
       let randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
       while (batch.indexOf(randomIndex) === 0)
         randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
 
       // For the last card, guaranteedly generates a never seen pokemon
-      if (n === TOTAL_CARDS - 1) {
+      if (i === TOTAL_CARDS - 1) {
         while (seenPokemons.includes(randomIndex)) {
           randomIndex = Math.floor(Math.random() * TOTAL_POKEMONS) + 1;
           while (batch.indexOf(randomIndex) === 0)
@@ -82,7 +82,7 @@ const Deck = ({ addScore, resetScore, TOTAL_POKEMONS }) => {
       {isLoading ? (
         <h2>Loading...</h2>
       ) : (
-        [...new Array(TOTAL_CARDS)].map((e, cardIndex) => (
+        currentPokemons.map((e, cardIndex) => (
           <Card
             key={cardIndex}
             pokemonIndex={currentPokemons[cardIndex]}
